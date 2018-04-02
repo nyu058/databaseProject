@@ -15,25 +15,28 @@ public class Restaurant {
     public String getRestaurantList(Connect conn)
     {
         connection = conn.getConnection();
-        String cname;
-        String aname;
-
+        String name;
+        String type;
+        String link;
         try {
             st = connection.createStatement();
-            rs = st.executeQuery("SELECT  name, type FROM restaurant");
+            rs = st.executeQuery("SELECT  name, type, url FROM restaurant");
         } catch(Exception e){
-            System.out.println("Cant read likeartist table");
+            System.out.println("Cant read table");
         }
         try{
             while (rs.next())
             {
-                cname=rs.getString("name");
-                aname=rs.getString("type");
+                name=rs.getString("name");
+                type=rs.getString("type");
+                link=rs.getString("url");
                 rList+="<tr><tr><td>"
-                               + cname
+                               +name
                                + "</td><td>"
-                               + aname
-                               +"</td></tr>";
+                               + type
+                               +"</td></tr>"
+                               + link
+                               +"</td><td>";
             }
         }catch(Exception e){
             System.out.println("Error creating table "+e);
