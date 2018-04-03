@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@page import="java.sql.*"%>
-<%@page import="com.Project.connection.Connect"%>
-<%@page import="com.Project.connection.Restaurant"%>
+<%@page import="connection.Connect"%>
+<%@page import="table.Restaurant"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -16,17 +16,24 @@ Restaurant restaurant = new Restaurant();
 <title>Smart Restaurant Rating System</title>
 </head>
 <body>
+<a href="home.jsp">Home</a>
 <h3>List of Restaurants</h3>
 <table border=1>
                 <tr>
-                    <td>
-                        <b>Name</b>
-                    </td>
-                    <td>
-                        <b>Type</b>
-                    </td>
-                    <td>Link</td>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                       Type
+                    </th>
+                    <th>
+                    	Link
+                    </th>
                 </tr>
                <%out.println(restaurant.getRestaurantList(db));%>
+               </table>
+               
+               <a href="createRestaurant.jsp">Create a New Restaurant</a>
+               
 </body>
 </html>

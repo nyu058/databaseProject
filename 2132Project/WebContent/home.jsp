@@ -9,7 +9,15 @@
 </head>
 <body>
 <br></br>
-<center><h3> Welcome to Smarting Restaurant Rating System</h3></center>
-<center>Restaurant List</center>
+<center><h3> Welcome to Smart Restaurant Rating System</h3></center>
+
+<center><a href="restaurant.jsp">Restaurant List</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="Login.jsp">Login</a></center>
+<br>
+<center>
+<form action="Logout" method="get">
+<input type="submit" value="logout">
+</form>
+
+</center>
 </body>
 </html>

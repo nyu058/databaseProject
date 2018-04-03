@@ -1,7 +1,9 @@
-package com.Project.connection;
+package table;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+
+import connection.Connect;
 
 
 public class RestaurantServlet extends HttpServlet {
