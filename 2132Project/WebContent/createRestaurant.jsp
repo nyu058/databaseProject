@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Create a Restaurant</title>
+<link rel="stylesheet" href="css/style.css">
 <%
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 	response.setHeader("Pragma", "no-cache");

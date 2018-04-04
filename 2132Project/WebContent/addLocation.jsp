@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>New Location</title>
+<link rel="stylesheet" href="css/style.css">
 <%
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 	response.setHeader("Pragma", "no-cache");
@@ -15,6 +16,7 @@
 %>
 </head>
 <body>
+<center>
 	<h3>Enter the location for:</h3>
 
 	<form action="Location" method="get">
@@ -28,7 +30,10 @@
 			name="ctime" step="1800" required><br> <br> <input
 			type="hidden" name="rid" value="<%=request.getParameter("id")%>">
 		<input type="submit" value="Submit">
-	</form>
 
+	</form>
+	&nbsp;&nbsp;
+	<a href="restaurant.jsp">Back to Restaurant List</a>
+</center>
 </body>
 </html>

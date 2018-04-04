@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Sueecee!</title>
+<title>Success!</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<h2>You have successfully registered!</h2>

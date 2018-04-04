@@ -6,11 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Smart Restaurant Rating System</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<br></br>
 	<center>
-		<h3>Welcome to Smart Restaurant Rating System</h3>
+		<h2>Welcome to Smart Restaurant Rating System</h2>
 	</center>
 
 	<center>
@@ -20,7 +21,7 @@
 	<br>
 	<center>
 		<form action="Logout" method="get">
-			<input type="submit" value="logout">
+			<input type="submit" value="Logout">
 		</form>
 
 	</center>

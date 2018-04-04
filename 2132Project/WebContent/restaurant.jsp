@@ -14,24 +14,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Smart Restaurant Rating System</title>
+<title>Restaurant List</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<a href="home.jsp">Home</a>
-	<h3>List of Restaurants</h3>
-	<table border=2>
-		<tr>
-			<th>Name</th>
-			<th>Type</th>
+	<center>
+		<br>
+		<br> <a href="home.jsp">Home</a>
+		<h3>List of Restaurants</h3>
+		<table border=2>
+			<tr>
+				<th>Name</th>
+				<th>Type</th>
 
-		</tr>
-		<%
-			out.println(restaurant.getRestaurantList(db));
-		%>
-	</table>
+			</tr>
+			<%
+				out.println(restaurant.getRestaurantList(db));
+			%>
+		</table>
+		<br> <a href="createRestaurant.jsp">Create a New Restaurant</a>
 
-	<a href="createRestaurant.jsp">Create a New Restaurant</a>
-
+	</center>
 </body>
 </html>
