@@ -890,6 +890,15 @@ body {
   -o-transition: all 0s;
   transition: all 0s;
 }
+input[type=submit].link {
+     background:none!important;
+     color:inherit;
+     border:none; 
+     padding:0!important;
+     font: inherit;
+     border-bottom:1px solid #444; 
+     cursor: pointer;
+}
 div.loginpanel {
   width: 100%;
   max-width: 500px;

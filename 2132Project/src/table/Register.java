@@ -16,62 +16,53 @@ import javax.servlet.http.HttpServletResponse;
 
 import connection.Connect;
 
-/**
- * Servlet implementation class Register
- */
 @WebServlet("/Register")
 public class Register extends HttpServlet {
 	private ResultSet rs;
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String email = request.getParameter("email");
 		String uname = request.getParameter("username");
 		String pswd = request.getParameter("pswd");
 		String type = request.getParameter("type");
-		
+
 		Connect db = new Connect();
 		db.openConnection();
-		//System.out.println("Insert into rater values(" + getID(db) + ", '" + email + "', '" + uname + "', '"
-			//	+ getDate() + "', '" + type + "')");
-		//System.out.println("Insert into login values("+getID(db)+ ", '" + email + "', '"+pswd+"')");
+
 		createUser(email, uname, type, db);
 		createLogin(email, pswd, db);
-		
+
 		response.sendRedirect("RegisterSuccess.jsp");
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
-	public void createUser(String email, String uname,  String type, Connect conn) {
+	public void createUser(String email, String uname, String type, Connect conn) {
 		Statement st;
 		Connection connection = conn.getConnection();
 		try {
 			st = connection.createStatement();
 			st.executeUpdate("Insert into rater values(" + getID(conn) + ", '" + email + "', '" + uname + "', '"
 					+ getDate() + "', '" + type + "')");
-			
+
 		} catch (Exception e) {
 			System.out.println("Cant insert user info");
 		}
 	}
-public void createLogin(String email, String pswd, Connect conn) {
-	Statement st;
-	Connection connection = conn.getConnection();
-	int id=getID(conn)-1;
-	try {
-		st = connection.createStatement();
-		st.executeUpdate("Insert into login values("+id+ ", '" + email + "', '"+pswd+"')");
-	} catch (Exception e) {
-		System.out.println("Cant insert login info");
+
+	public void createLogin(String email, String pswd, Connect conn) {
+		Statement st;
+		Connection connection = conn.getConnection();
+		int id = getID(conn) - 1;
+		try {
+			st = connection.createStatement();
+			st.executeUpdate("Insert into login values(" + id + ", '" + email + "', '" + pswd + "')");
+		} catch (Exception e) {
+			System.out.println("Cant insert login info");
+		}
+
 	}
-	
-}
+
 	public int getID(Connect conn) {
 		int id = 0;
 		Statement st;

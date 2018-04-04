@@ -1,26 +1,77 @@
 package table;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import connection.Connect;
 
-public class Restaurant {
+@WebServlet("/Restaurant")
+public class Restaurant extends HttpServlet {
 	private Connection connection;
-	private Statement st;
-	private Connect dataaccess;
+
 	private ResultSet rs;
 	private String rList = "";
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String rname = request.getParameter("rname");
+		String type = request.getParameter("type");
+		Connect db = new Connect();
+		db.openConnection();
+		createRestaurant(rname, type, db);
+		response.sendRedirect("restaurant.jsp");
+	}
+
+	public int getID(Connect conn) {
+		int id = 0;
+		Statement st;
+		Connection connection = conn.getConnection();
+		try {
+			st = connection.createStatement();
+			rs = st.executeQuery("select restaurantid from restaurant order by restaurantid desc limit 1");
+		} catch (Exception e) {
+			System.out.println("Cant get last record");
+		}
+		try {
+			if (rs != null) {
+				while (rs.next()) {
+					id = rs.getInt("restaurantid");
+				}
+			}
+
+		} catch (Exception e) {
+			System.out.println("Error creating table " + e);
+		}
+		id++;
+		return id;
+	}
+
+	public void createRestaurant(String rname, String type, Connect conn) {
+		Statement st;
+		Connection connection = conn.getConnection();
+		try {
+			st = connection.createStatement();
+			st.executeUpdate("Insert into restaurant values(" + getID(conn) + ", '" + rname + "', '" + type + "')");
+		} catch (Exception e) {
+			System.out.println("Cant insert restaurant info");
+		}
+	}
 
 	public String getRestaurantList(Connect conn) {
 		connection = conn.getConnection();
 		String name;
 		String type;
-		String link;
+		String id;
 		try {
-			st = connection.createStatement();
-			rs = st.executeQuery("SELECT  name, type, url FROM restaurant");
+			Statement st = connection.createStatement();
+			rs = st.executeQuery("SELECT  restaurantid, name, type FROM restaurant");
 		} catch (Exception e) {
 			System.out.println("Cant read table");
 		}
@@ -28,8 +79,10 @@ public class Restaurant {
 			while (rs.next()) {
 				name = rs.getString("name");
 				type = rs.getString("type");
-				link = rs.getString("url");
-				rList += "<tr><tr><td>" + name + "</td><td>" + type + "</td><td>" + link + "</td></tr>";
+				id = rs.getString("restaurantid");
+				rList += "<tr><tr><td><form method=\"get\" action=\"RestaurantDetail\"><input type=\"hidden\"name=\"id\" value=\""
+						+ id + "\"><input type=\"submit\" class=\"link\" value=\"" + name + "\"></form></td><td>" + type
+						+ "</td></tr>";
 			}
 		} catch (Exception e) {
 			System.out.println("Error creating table " + e);
