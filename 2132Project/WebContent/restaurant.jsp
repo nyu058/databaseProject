@@ -19,8 +19,7 @@
 </head>
 <body>
 	<center>
-		<br>
-		<br> <a href="home.jsp">Home</a>
+		<br> <br> <a href="home.jsp">Home</a>
 		<h3>List of Restaurants</h3>
 		<table border=2>
 			<tr>

@@ -89,4 +89,27 @@ public class Restaurant extends HttpServlet {
 		}
 		return rList;
 	}
+	public String getName(String id, Connect conn) {
+		String name = "";
+		Statement st;
+		Connection connection = conn.getConnection();
+		try {
+			st = connection.createStatement();
+			rs = st.executeQuery("select name from restaurant where restaurantid=" + id);
+		} catch (Exception e) {
+			System.out.println("Cant get last record");
+		}
+		try {
+			if (rs != null) {
+				while (rs.next()) {
+					name = rs.getString("name");
+				}
+			}
+
+		} catch (Exception e) {
+			System.out.println("Error creating table " + e);
+		}
+
+		return name;
+	}
 }

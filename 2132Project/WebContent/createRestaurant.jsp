@@ -18,8 +18,7 @@
 <body onunload="">
 	<center>
 		<h3>Creating a restaurant</h3>
-		<a href="home.jsp">Home</a><br>
-		<br>
+		<a href="home.jsp">Home</a><br> <br>
 	</center>
 	<center>
 		<form action="Restaurant" method="post">

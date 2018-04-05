@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.*"%>
+<%@page import="connection.Connect"%>
+<%@page import="table.Restaurant"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,27 +16,32 @@
 	if (session.getAttribute("username") == null) {
 		response.sendRedirect("Login.jsp");
 	}
+	Connect db = new Connect();
+	db.openConnection();
+	Restaurant restaurant = new Restaurant();
 %>
 </head>
 <body>
-<center>
-	<h3>Enter the location for:</h3>
+	<center>
+		<h3>
+			Enter the location for&nbsp;<%=restaurant.getName(request.getParameter("id"), db)%>:
+		</h3>
 
-	<form action="Location" method="get">
-		First open date:<input type="date" name="odate" requited><br>
-		<br> Manager Name:<input type="text" name="mname" required><br>
-		<br> Phone Number:<input type="tel" name="phone" required><br>
-		<br> Stree Address:<input type="text" name="address" required><br>
-		<br> City:<input type="text" name="city" required><br>
-		<br> Hour Open:<input type="time" name="otime" step="1800"
-			required><br> <br> Hour Close:<input type="time"
-			name="ctime" step="1800" required><br> <br> <input
-			type="hidden" name="rid" value="<%=request.getParameter("id")%>">
-		<input type="submit" value="Submit">
+		<form action="Location" method="get">
+			First open date:<input type="date" name="odate" requited><br>
+			<br> Manager Name:<input type="text" name="mname" required><br>
+			<br> Phone Number:<input type="tel" name="phone" required><br>
+			<br> Street Address:<input type="text" name="address" required><br>
+			<br> City:<input type="text" name="city" required><br>
+			<br> Hour Open:<input type="time" name="otime" step="1800"
+				required><br> <br> Hour Close:<input type="time"
+				name="ctime" step="1800" required><br> <br> <input
+				type="hidden" name="rid" value="<%=request.getParameter("id")%>">
+			<input type="submit" value="Submit">
 
-	</form>
-	&nbsp;&nbsp;
-	<a href="restaurant.jsp">Back to Restaurant List</a>
-</center>
+		</form>
+		&nbsp;&nbsp; <a href="javascript:history.back()">Back to
+			Restaurant</a>
+	</center>
 </body>
 </html>

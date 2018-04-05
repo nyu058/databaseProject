@@ -50,8 +50,9 @@
 		</table>
 		<br> <a
 			href=<%="\"addLocation.jsp?id=" + request.getParameter("id") + "\""%>>Add
-			a new location</a>&nbsp;&nbsp; <a href="restaurant.jsp">Back to
-			Restaurant List</a>
+			a new location</a>&nbsp;&nbsp; <a href=<%="\"menu.jsp?id=" + request.getParameter("id") + "\""%>>Show menu</a>&nbsp;&nbsp;
+			
+			<a href="restaurant.jsp">Back to Restaurant List</a>
 	</center>
 </body>
 </html>
