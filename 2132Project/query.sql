@@ -160,31 +160,34 @@ from
             left join rater on tmp3.userid=rater.userid) as tmp4
         left join rating on tmp4.userid=rating.userid) as tmp5
     left join restaurant on tmp5.restaurantid=restaurant.restaurantid
---对餐厅6最频繁的评价者
-select rater_name,reputation,name,comment from
-
-(select name as rater_name,reputation,comment,restaurantid from
-(
-    
-    select tmp3.userid,name,reputation from
-(select *
-from (SELECT userid, count(userid)
-    FROM rating
-    WHERE restaurantid=6
-    group by userid)as tmp2
-where count=
-(select max(count)
+--对餐厅Fraser Cafe最频繁的评价者
+select ratername, reputation, name, date, comment, price
 from
-    (SELECT userid, count(userid)
-    FROM rating
-    WHERE restaurantid=6
-    group by userid)as tmp1))as tmp3 
-    left join rater on tmp3.userid=rater.userid
-
-)as tmp4
-left join rating on tmp4.userid=rating.userid
-where restaurantid=6) as tmp5
-left join restaurant on restaurant.restaurantid=tmp5.restaurantid
+    (select name as ratername, reputation, date, itemid, comment
+    from
+        (select tmp3.userid, name, reputation
+        from
+            (select *
+            from (SELECT userid, count(userid)
+                FROM rating
+                WHERE restaurantid=(select restaurantid
+                from restaurant
+                where name='Fraser Cafe')
+                group by userid)as tmp2
+            where count=
+(select max(count)
+            from
+                (SELECT userid, count(userid)
+                FROM rating
+                WHERE restaurantid=(select restaurantid
+                from restaurant
+                where name='Fraser Cafe')
+                group by userid)as tmp1))as tmp3
+            left join rater on tmp3.userid=rater.userid)as tmp4 left join ratingitem on tmp4.userid=ratingitem.userid)as tmp5
+    left join menuitem on tmp5.itemid=menuitem.itemid
+where restaurantid=(select restaurantid
+from restaurant
+where name='Fraser Cafe')
 
 --比love666平均评分低的人
 select name, email

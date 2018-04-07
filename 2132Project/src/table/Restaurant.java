@@ -82,7 +82,8 @@ public class Restaurant extends HttpServlet {
 				id = rs.getString("restaurantid");
 				rList += "<tr><tr><td><form method=\"get\" action=\"RestaurantDetail\"><input type=\"hidden\"name=\"id\" value=\""
 						+ id + "\"><input type=\"submit\" class=\"link\" value=\"" + name + "\"></form></td><td>" + type
-						+ "</td></tr>";
+						+ "</td><td><form method=\"get\" action=\"rate.jsp\"><input type=\"hidden\"name=\"id\" value=\""
+						+ id + "\"><input type=\"submit\" class=\"link\" value=\"Rate\"></form></td></tr>";
 			}
 		} catch (Exception e) {
 			System.out.println("Error creating table " + e);

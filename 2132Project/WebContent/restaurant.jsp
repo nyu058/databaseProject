@@ -25,6 +25,7 @@
 			<tr>
 				<th>Name</th>
 				<th>Type</th>
+				<th>Action</th>
 
 			</tr>
 			<%
