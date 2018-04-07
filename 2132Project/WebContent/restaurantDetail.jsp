@@ -32,7 +32,7 @@
 			out.println(request.getAttribute("type"));
 		%>
 		</h3>
-		<h3>Locations:</h3>
+		<h3>Location:</h3>
 		<table border=2>
 			<tr>
 				<th>Open Date</th>
@@ -48,11 +48,22 @@
 				out.println(location.getLocationList(request.getParameter("id"), db));
 			%>
 		</table>
+		<h3>Number of ratings for each user:</h3>
+		<table border=2>
+			<tr>
+				<th>Name</th>
+				<th>Count</th>
+			</tr>
+
+			<%=restaurant.getRatingCount(request.getParameter("id"), db)%>
+
+		</table>
 		<br> <a
 			href=<%="\"addLocation.jsp?id=" + request.getParameter("id") + "\""%>>Add
-			a new location</a>&nbsp;&nbsp; <a href=<%="\"menu.jsp?id=" + request.getParameter("id") + "\""%>>Show menu</a>&nbsp;&nbsp;
-			
-			<a href="restaurant.jsp">Back to Restaurant List</a>
+			a new location</a>&nbsp;&nbsp; <a
+			href=<%="\"menu.jsp?id=" + request.getParameter("id") + "\""%>>Show
+			menu</a>&nbsp;&nbsp; <a href="restaurant.jsp">Back to Restaurant List</a>
+
 	</center>
 </body>
 </html>

@@ -112,4 +112,29 @@ public class Restaurant extends HttpServlet {
 
 		return name;
 	}
+	public String getRatingCount(String id, Connect conn) {
+		String result = "";
+		String name;
+		String count;
+		Connection connection = conn.getConnection();
+		try {
+			Statement st = connection.createStatement();
+			rs = st.executeQuery(
+					"SELECT name, count(userid) FROM rating WHERE restaurantid="+id+"group by userid");
+		} catch (Exception e) {
+			System.out.println("Cant read table");
+			e.printStackTrace();
+		}try {
+			while (rs.next()) {
+				name=rs.getString("name");
+				count = rs.getString("count(userid)");
+				result += "<tr><tr><td>"+name+"</td><td>"+count+"</td></tr>";
+			}
+	} catch (Exception e) {
+		System.out.println("Error creating table " + e);
+		e.printStackTrace();
+	}
+	return result;
+
+}
 }

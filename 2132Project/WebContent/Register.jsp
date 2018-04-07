@@ -16,7 +16,7 @@
 			Email : <input type="email" name="email" required><br> <br>
 			Password : <input id="password" type="password" name="pswd" required><br>
 			<br> Confirm Password: <input type="password" id
-				id="password_confirm" oninput="check(this)">
+				id="password_confirm" oninput="check(this)" required>
 			<script language='javascript' type='text/javascript'>
 				function check(input) {
 					if (input.value != document.getElementById('password').value) {
