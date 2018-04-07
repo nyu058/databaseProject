@@ -89,6 +89,7 @@ public class Restaurant extends HttpServlet {
 		}
 		return rList;
 	}
+
 	public String getName(String id, Connect conn) {
 		String name = "";
 		Statement st;
@@ -112,6 +113,7 @@ public class Restaurant extends HttpServlet {
 
 		return name;
 	}
+
 	public String getRatingCount(String id, Connect conn) {
 		String result = "";
 		String name;
@@ -120,21 +122,55 @@ public class Restaurant extends HttpServlet {
 		try {
 			Statement st = connection.createStatement();
 			rs = st.executeQuery(
-					"SELECT name, count(userid) FROM rating WHERE restaurantid="+id+"group by userid");
+					"SELECT name, count(rating.userid) FROM rating  inner join rater on rating.userid= rater.userid WHERE restaurantid="
+							+ id + " group by rater.name");
 		} catch (Exception e) {
 			System.out.println("Cant read table");
 			e.printStackTrace();
-		}try {
+		}
+		try {
 			while (rs.next()) {
-				name=rs.getString("name");
-				count = rs.getString("count(userid)");
-				result += "<tr><tr><td>"+name+"</td><td>"+count+"</td></tr>";
+				name = rs.getString("name");
+				count = rs.getString("count");
+				result += "<tr><tr><td>" + name + "</td><td>" + count + "</td></tr>";
 			}
-	} catch (Exception e) {
-		System.out.println("Error creating table " + e);
-		e.printStackTrace();
-	}
-	return result;
+		} catch (Exception e) {
+			System.out.println("Error creating table " + e);
+			e.printStackTrace();
+		}
+		return result;
 
-}
+	}
+
+	public String getNotRated(Connect conn) {
+		String name;
+		String phone;
+		String type;
+		String result = "";
+		Statement st;
+		Connection connection = conn.getConnection();
+		try {
+			st = connection.createStatement();
+			rs = st.executeQuery(
+					"select restaurant.name, tel, type from restaurant inner join location on restaurant.restaurantid=location.restaurantid where (restaurant.restaurantid not in (select restaurantid from rating where (date_part('month',Date)=1 and date_part('year',date)=2015)))");
+		} catch (Exception e) {
+			System.out.println("Cant get last record");
+		}
+		try {
+
+			while (rs.next()) {
+				name = rs.getString(1);
+				phone = rs.getString("tel");
+				type = rs.getString("type");
+				result += "<tr><tr><td>" + name + "</td><td>" + phone + "</td><td>" + type + "</td></tr>";
+			}
+
+		} catch (Exception e) {
+			System.out.println("Error creating table " + e);
+		}
+
+		return result;
+
+	}
+
 }

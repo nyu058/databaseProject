@@ -31,7 +31,8 @@
 				out.println(restaurant.getRestaurantList(db));
 			%>
 		</table>
-		<br> <a href="createRestaurant.jsp">Create a New Restaurant</a>
+		<br> <a href="createRestaurant.jsp">Create a New Restaurant</a><br>
+		<a href="notrated.jsp">Click here to see restaurants that have not been rated in January 2015</a>
 
 	</center>
 </body>
