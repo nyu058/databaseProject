@@ -30,7 +30,7 @@ public class AddRate extends HttpServlet {
 		db.openConnection();
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("username");
-		System.out.println(email);
+		
 		String uid = getUID(email, db);
 		createRating(uid, request.getParameter("food"), request.getParameter("mood"), request.getParameter("price"),
 				request.getParameter("staff"), request.getParameter("comeagain"), request.getParameter("comment"),
@@ -59,8 +59,7 @@ public class AddRate extends HttpServlet {
 			String comment, String id, Connect conn) {
 		Statement st;
 		Connection connection = conn.getConnection();
-		System.out.println("insert into rating values(" + uid + ", '" + getDate() + "', " + price + ", " + food
-					+ ", " + mood + ", " + staff + ", '" + comment + "', " + again + ", " + id + ")");
+		
 		try {
 			st = connection.createStatement();
 			st.executeUpdate("insert into rating values(" + uid + ", '" + getDate() + "', " + price + ", " + food

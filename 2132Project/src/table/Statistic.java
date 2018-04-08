@@ -175,11 +175,11 @@ public class Statistic extends HttpServlet {
     public String getDiversedRater(String id, Connect conn) {
         String rList = "";
         connection = conn.getConnection();
-        String ratername, type, email, name, price, food, mood, staff;
+        String ratername, type, email, price, food, mood, staff;
         try {
             Statement st = connection.createStatement();
             rs = st.executeQuery(
-                    "select ratername, tmpa.type, email, name, price, food, mood, staff from (select tmp6.name as ratername, type, email, restid, price, food, mood, staff from((select distinct userid, restaurantid as restid from (select tmp2.userid, tmp2.restaurantid, ((avgrate-avg)*(avgrate-avg)/(count))as variance from (select userid, cast(((price+food+mood+staff)/4)as dec(3,2))as avgrate, restaurantid from rating)as tmp2 left join (select userid, restaurantid, avg(avgrate), count(userid) from (select userid, cast(((price+food+mood+staff)/4)as dec(3,2))as avgrate, restaurantid from rating)as tmpa group by userid,restaurantid) as tmp1 on ((tmp2.userid=tmp1.userid) and (tmp2.restaurantid=tmp1.restaurantid)))as tmptb where restaurantid= "
+                    "select ratername, tmpa.type, email, price, food, mood, staff from (select tmp6.name as ratername, type, email, restid, price, food, mood, staff from((select distinct userid, restaurantid as restid from (select tmp2.userid, tmp2.restaurantid, ((avgrate-avg)*(avgrate-avg)/(count))as variance from (select userid, cast(((price+food+mood+staff)/4)as dec(3,2))as avgrate, restaurantid from rating)as tmp2 left join (select userid, restaurantid, avg(avgrate), count(userid) from (select userid, cast(((price+food+mood+staff)/4)as dec(3,2))as avgrate, restaurantid from rating)as tmpa group by userid,restaurantid) as tmp1 on ((tmp2.userid=tmp1.userid) and (tmp2.restaurantid=tmp1.restaurantid)))as tmptb where restaurantid= "
                             + id
                             + " and variance=(select max(variance) from (select distinct * from (select tmp2.userid, tmp2.restaurantid, ((avgrate-avg)*(avgrate-avg)/(count))as variance from (select userid, cast(((price+food+mood+staff)/4)as dec(3,2))as avgrate, restaurantid from rating)as tmp2 left join(select userid, restaurantid, avg(avgrate), count(userid) from (select userid, cast(((price+food+mood+staff)/4)as dec(3,2))as avgrate, restaurantid from rating)as tmpa group by userid,restaurantid) as tmp1 on ((tmp2.userid=tmp1.userid) and (tmp2.restaurantid=tmp1.restaurantid))) as tmptc where restaurantid= "
                             + id
@@ -193,13 +193,13 @@ public class Statistic extends HttpServlet {
                 ratername = rs.getString("ratername");
                 type = rs.getString("type");
                 email = rs.getString("email");
-                name = rs.getString("name");
+                
                 price = rs.getString("price");
                 food = rs.getString("food");
                 mood = rs.getString("mood");
                 staff = rs.getString("staff");
-                rList += "<tr><td>" + ratername + "</td><td>" + type + "</td><td>" + email + "</td><td>" + name
-                        + "</td><td>" + price + "</td><td>" + food + "</td><td>" + mood + "</td><td>" + staff
+                rList += "<tr><td>" + ratername + "</td><td>" + type + "</td><td>" + email + "</td><td>" 
+                         + price + "</td><td>" + food + "</td><td>" + mood + "</td><td>" + staff
                         + "</td></tr>";
             }
         } catch (Exception e) {

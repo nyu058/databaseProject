@@ -48,7 +48,7 @@ public class Menu extends HttpServlet {
 		try {
 			st = connection.createStatement();
 			rs = st.executeQuery(
-					"select name, description, price from menuitem where category='starter'and type='food' and restaurantid="
+					"select itemid, name, description, price from menuitem where category='starter'and type='food' and restaurantid="
 							+ id);
 		} catch (Exception e) {
 			System.out.println("Cant get starter");
@@ -57,9 +57,13 @@ public class Menu extends HttpServlet {
 		try {
 			if (rs != null) {
 				while (rs.next()) {
-					result += "<tr><tr><td>" + rs.getString("name") + "&nbsp;&nbsp;&nbsp;&nbsp;</td><td>"
-							+ rs.getString("description") + "&nbsp;&nbsp;&nbsp;&nbsp;</td><td>$" + rs.getString("price")
-							+ "</td></tr>";
+					
+					result += "<tr><tr><td><form method=\"get\" action=\"RateMenu\"><input type=\"hidden\"name=\"iid\" value=\""
+							+ rs.getString("itemid") + "\"><input type=\"submit\" class=\"link\" value=\"" + rs.getString("name") + "\">&nbsp;&nbsp;&nbsp;&nbsp;</form></td><td>" + rs.getString("description")
+							+ "</td><td>&nbsp;&nbsp;&nbsp;&nbsp;"+rs.getString("price")+"</td></tr>";
+//					result += "<tr><tr><td>" + rs.getString("name") + "&nbsp;&nbsp;&nbsp;&nbsp;</td><td>"
+//							+ rs.getString("description") + "&nbsp;&nbsp;&nbsp;&nbsp;</td><td>$" + rs.getString("price")
+//							+ "</td></tr>";
 				}
 			}
 
@@ -77,7 +81,7 @@ public class Menu extends HttpServlet {
 		try {
 			st = connection.createStatement();
 			rs = st.executeQuery(
-					"select name, description, price from menuitem where category='main'and type='food' and restaurantid="
+					"select itemid, name, description, price from menuitem where category='main'and type='food' and restaurantid="
 							+ id);
 		} catch (Exception e) {
 			System.out.println("Cant get main");
@@ -86,9 +90,9 @@ public class Menu extends HttpServlet {
 		try {
 			if (rs != null) {
 				while (rs.next()) {
-					result += "<tr><tr><td>" + rs.getString("name") + "&nbsp;&nbsp;&nbsp;&nbsp;</td><td>"
-							+ rs.getString("description") + "&nbsp;&nbsp;&nbsp;&nbsp;</td><td>$" + rs.getString("price")
-							+ "</td></tr>";
+					result += "<tr><tr><td><form method=\"get\" action=\"RateMenu\"><input type=\"hidden\"name=\"iid\" value=\""
+							+ rs.getString("itemid")  + "\"><input type=\"submit\" class=\"link\" value=\"" + rs.getString("name") + "\">&nbsp;&nbsp;&nbsp;&nbsp;</form></td><td>" + rs.getString("description")
+							+ "</td><td>&nbsp;&nbsp;&nbsp;&nbsp;"+rs.getString("price")+"</td></tr>";
 				}
 			}
 
@@ -106,7 +110,7 @@ public class Menu extends HttpServlet {
 		try {
 			st = connection.createStatement();
 			rs = st.executeQuery(
-					"select name, description, price from menuitem where category='desert'and type='food' and restaurantid="
+					"select itemid, name, description, price from menuitem where category='desert'and type='food' and restaurantid="
 							+ id);
 		} catch (Exception e) {
 			System.out.println("Cant get desert");
@@ -115,9 +119,9 @@ public class Menu extends HttpServlet {
 		try {
 			if (rs != null) {
 				while (rs.next()) {
-					result += "<tr><tr><td>" + rs.getString("name") + "&nbsp;&nbsp;&nbsp;&nbsp;</td><td>"
-							+ rs.getString("description") + "&nbsp;&nbsp;&nbsp;&nbsp;</td><td>$" + rs.getString("price")
-							+ "</td></tr>";
+					result += "<tr><tr><td><form method=\"get\" action=\"RateMenu\"><input type=\"hidden\"name=\"iid\" value=\""
+							+ rs.getString("itemid")  + "\"><input type=\"submit\" class=\"link\" value=\"" + rs.getString("name") + "\">&nbsp;&nbsp;&nbsp;&nbsp;</form></td><td>" + rs.getString("description")
+							+ "</td><td>&nbsp;&nbsp;&nbsp;&nbsp;"+rs.getString("price")+"</td></tr>";
 				}
 			}
 
@@ -135,7 +139,7 @@ public class Menu extends HttpServlet {
 		try {
 			st = connection.createStatement();
 			rs = st.executeQuery(
-					"select name, description, price from menuitem where type='beverage' and restaurantid=" + id);
+					"select itemid, name, description, price from menuitem where type='beverage' and restaurantid=" + id);
 		} catch (Exception e) {
 			System.out.println("Cant get drink");
 			e.printStackTrace();
@@ -143,9 +147,9 @@ public class Menu extends HttpServlet {
 		try {
 			if (rs != null) {
 				while (rs.next()) {
-					result += "<tr><tr><td>" + rs.getString("name") + "&nbsp;&nbsp;&nbsp;&nbsp;</td><td>"
-							+ rs.getString("description") + "&nbsp;&nbsp;&nbsp;&nbsp;</td><td>$" + rs.getString("price")
-							+ "</td></tr>";
+					result += "<tr><tr><td><form method=\"get\" action=\"RateMenu\"><input type=\"hidden\"name=\"iid\" value=\""
+							+ rs.getString("itemid")  + "\"><input type=\"submit\" class=\"link\" value=\"" + rs.getString("name") + "\">&nbsp;&nbsp;&nbsp;&nbsp;</form></td><td>" + rs.getString("description")
+							+ "</td><td>&nbsp;&nbsp;&nbsp;&nbsp;"+rs.getString("price")+"</td></tr>";
 				}
 			}
 

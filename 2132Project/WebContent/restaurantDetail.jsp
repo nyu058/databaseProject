@@ -99,7 +99,7 @@
 				<td>Rater Name</td>
 				<td>Rater Type</td>
 				<td>Rater Email</td>
-				<td>Restaurant Name</td>
+				
 				<td>Price</td>
 				<td>Food</td>
 				<td>Mood</td>
