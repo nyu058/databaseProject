@@ -96,12 +96,21 @@ select name, tmp1.userid
     from tmp))as tmp2 inner join rater on tmp2.userid=rater.userid
 --(须实际测试)
 --根据评价数量判断哪个类型餐厅更受欢迎
-select type, count(type)
+select *
 from
-    (select restaurantid
-    from rating)as tmp1 left join restaurant on tmp1.restaurantid=restaurant.restaurantid
-group by type
-order by count desc
+    (select type, count(type)
+    from
+        (select restaurantid
+        from rating)as tmp1 left join restaurant on tmp1.restaurantid=restaurant.restaurantid
+    group by type
+    order by count desc)as tmp2
+where count=(select max(count)
+from (select type, count(type)
+    from
+        (select restaurantid
+        from rating)as tmp1 left join restaurant on tmp1.restaurantid=restaurant.restaurantid
+    group by type
+    order by count desc)as tmp3)
 --找出整体给出的评价最高的rater
 select tmp5.name as ratername, joindate, reputation, restaurant.name as restaurant_name, date
 from
