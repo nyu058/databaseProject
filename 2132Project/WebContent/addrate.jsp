@@ -3,7 +3,6 @@
 <%@page import="java.sql.*"%>
 <%@page import="connection.Connect"%>
 <%@page import="table.Restaurant"%>
-<%@page import="table.Addrate"%>
 <%@page import="table.AddRate"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -28,7 +27,6 @@
 		<h3>
 			Enter a Rating for&nbsp;<%=restaurant.getName(request.getParameter("id"), db)%>
 		</h3>
-		<form action="Addrate" method="get">
 		<form action="AddRate" method="get">
             <table>
                 <tr>

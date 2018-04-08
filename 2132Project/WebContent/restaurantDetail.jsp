@@ -81,7 +81,6 @@
 			href=<%="\"addLocation.jsp?id=" + request.getParameter("id") + "\""%>>Add
 			a new location</a>&nbsp;&nbsp; <a
 			href=<%="\"menu.jsp?id=" + request.getParameter("id") + "\""%>>Show
-			menu</a>&nbsp;&nbsp; <a href="restaurant.jsp">Back to Restaurant List</a>
 			menu</a>&nbsp;&nbsp; <a href=<%="\"addrate.jsp?id=" + request.getParameter("id") + "\""%>> Add a rating</a>
 			<br><a href="restaurant.jsp">Back to Restaurant List</a>
 
