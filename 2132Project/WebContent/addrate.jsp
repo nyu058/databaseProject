@@ -4,6 +4,7 @@
 <%@page import="connection.Connect"%>
 <%@page import="table.Restaurant"%>
 <%@page import="table.Addrate"%>
+<%@page import="table.AddRate"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,6 +29,7 @@
 			Enter a Rating for&nbsp;<%=restaurant.getName(request.getParameter("id"), db)%>
 		</h3>
 		<form action="Addrate" method="get">
+		<form action="AddRate" method="get">
             <table>
                 <tr>
                     <td>Food</td>
@@ -79,6 +81,7 @@
                 </tr>
                 </table>
                 <br>Your comment:<br><textarea name="comment" style="width:300px;height:100px;"></textarea>
+                <input type="hidden" name="rid" value="<%=request.getParameter("id")%>">
                 <br><br>Will you come again?
                 <input type="radio" name="comeagain" value="true" >Yes
                 <input type="radio" name="comeagain" value="false">No

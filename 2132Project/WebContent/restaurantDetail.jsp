@@ -48,6 +48,25 @@
 				out.println(location.getLocationList(request.getParameter("id"), db));
 			%>
 		</table>
+		
+		<h3>Ratings:</h3>
+		<table border=2>
+			<tr>
+				<th>User Name</th>
+				<th>Date</th>
+				<th>Price</th>
+				<th>Food</th>
+				<th>Mood</th>
+				<th>Staff</th>
+				<th>Comments</th>
+				<th>Come Again?</th>
+
+			</tr>
+			<%
+				out.println(restaurant.getRating(request.getParameter("id"), db));
+			%>
+		</table>
+		
 		<h3>Number of ratings for each user:</h3>
 		<table border=2>
 			<tr>
@@ -63,6 +82,8 @@
 			a new location</a>&nbsp;&nbsp; <a
 			href=<%="\"menu.jsp?id=" + request.getParameter("id") + "\""%>>Show
 			menu</a>&nbsp;&nbsp; <a href="restaurant.jsp">Back to Restaurant List</a>
+			menu</a>&nbsp;&nbsp; <a href=<%="\"addrate.jsp?id=" + request.getParameter("id") + "\""%>> Add a rating</a>
+			<br><a href="restaurant.jsp">Back to Restaurant List</a>
 
 	</center>
 </body>

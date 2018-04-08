@@ -15,9 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import connection.Connect;
-@WebServlet("/Addrate")
-public class Addrate extends HttpServlet{
-    private ResultSet rs;
 
 /**
  * Servlet implementation class AddRate
@@ -27,13 +24,6 @@ public class AddRate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ResultSet rs;
 
-    public void createRate(String userid,String price,String food,String mood,String staff,String comment,String restid,Connect conn){
-        Statement st;
-        String date=getDate();
-        Connection connection=conn.getConnection();
-        try{
-            st=connection.createStatement();
-            st.executeUpdate("insert into rating values(")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Connect db = new Connect();
@@ -58,7 +48,6 @@ public class AddRate extends HttpServlet {
 		doGet(request, response);
 	}
 
-    public String getDate() {
 	public String getDate() {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDateTime now = LocalDateTime.now();
@@ -99,7 +88,7 @@ public class AddRate extends HttpServlet {
 				}
 			}
 
-}		} catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println("Error creating table " + e);
 			e.printStackTrace();
 		}

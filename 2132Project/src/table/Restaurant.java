@@ -174,4 +174,55 @@ public class Restaurant extends HttpServlet {
 
 	}
 
+	public String getRating(String id, Connect conn) {
+		Connection connection = conn.getConnection();
+		String uname;
+		String date;
+		String price;
+		String food;
+		String mood;
+		String staff;
+		String comment;
+		String comeagain;
+		String result = "";
+		boolean b;
+		try {
+			Statement st = connection.createStatement();
+			rs = st.executeQuery(
+					"select name, date, price, food, mood, staff, comment, comeagain from rating left join rater on rating.userid=rater.userid where restaurantid="
+							+ id);
+		} catch (Exception e) {
+			System.out.println("Cant get rating");
+			e.printStackTrace();
+		}
+		try {
+			while (rs.next()) {
+				uname = rs.getString("name");
+				
+				date = rs.getString("date");
+				price = rs.getString("price");
+				food = rs.getString("food");
+				mood = rs.getString("mood");
+				staff = rs.getString("staff");
+				comment = rs.getString("comment");
+				b = rs.getBoolean("comeagain");
+				if (b) {
+					comeagain = "Yes";
+				} else {
+					comeagain = "No";
+				}
+				result += "<tr><tr><td>" + uname + "</td><td>" + date + "</td><td>" + price + "</td><td>" + food
+						+ "</td><td>" + mood + "</td><td>" + staff + "</td><td>" + comment + "</td><td>" + comeagain
+						+ "</td></tr>";
+
+			}
+		} catch (Exception e) {
+			System.out.println("Error creating table " + e);
+			e.printStackTrace();
+		}
+		return result;
+
+	}
+
+	
 }
