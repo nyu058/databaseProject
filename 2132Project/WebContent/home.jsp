@@ -19,7 +19,8 @@
 	<center>
 		<a href="restaurant.jsp">Restaurant List</a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="Login.jsp">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="Statistic.jsp">Statistic</a>
+		<a href="Statistic.jsp">Statistic</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="rater.jsp">Raters</a>
 	</center>
 	<br>
 	<center>
