@@ -78,7 +78,7 @@
                     </td>
                 </tr>
                 </table>
-                <br>Your comment:<br><textarea name="a" style="width:300px;height:100px;"></textarea>
+                <br>Your comment:<br><textarea name="comment" style="width:300px;height:100px;"></textarea>
                 <br><br>Will you come again?
                 <input type="radio" name="comeagain" value="true" >Yes
                 <input type="radio" name="comeagain" value="false">No
