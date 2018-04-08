@@ -15,12 +15,14 @@
 	</center>
 	<div class="loginpanel">
 		<form action="Login" method="post">
+		
 			<div class="txt">
 				<input id="email" type="text" name="uname" placeholder="Email" /><br>
 				<label for="email" class="entypo-user"></label>
 			</div>
 			<div class="txt">
 				<input type="password" name="pswd" placeholder="Password" /><br>
+				
 				<br> <label for="pwd" class="entypo-lock"></label>
 			</div>
 			<div class="buttons">
