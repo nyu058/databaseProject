@@ -21,6 +21,7 @@
 		<a href="Login.jsp">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="Statistic.jsp">Statistic</a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="rater.jsp">Raters</a>
+		<br><a href="su.jsp">Super User Menu</a>
 	</center>
 	<br>
 	<center>
