@@ -5,6 +5,7 @@
 <%@page import="connection.Connect"%>
 <%@page import="table.Restaurant"%>
 <%@page import="table.Location"%>
+<%@page import="table.Statistic"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -13,6 +14,7 @@
 	db.openConnection();
 	Restaurant restaurant = new Restaurant();
 	Location location = new Location();
+	Statistic statistic=new Statistic();
 %>
 <title>Detail</title>
 <link rel="stylesheet" href="css/style.css">
@@ -77,6 +79,35 @@
 			<%=restaurant.getRatingCount(request.getParameter("id"), db)%>
 
 		</table>
+		<h3>Statistic Data</h3>
+		<br>The most frequent rater of this restaurant:<br>
+		<table border=2>
+			<tr>
+				<td>Rater Name</td>
+				<td>Reputation</td>
+				<td>Item name</td>
+				<td>Rate date</td>
+				<td>Comment</td>
+				<td>Price</td>
+			</tr>
+			<%out.println(statistic.getItemByRater(request.getParameter("id"),db));%>
+		</table>
+		<br>
+		<br>The raters that provide the most diverse ratings of this restaurant<br>
+		<table border=2>
+			<tr>
+				<td>Rater Name</td>
+				<td>Rater Type</td>
+				<td>Rater Email</td>
+				<td>Restaurant Name</td>
+				<td>Price</td>
+				<td>Food</td>
+				<td>Mood</td>
+				<td>Staff</td>
+			</tr>
+			<%out.println(statistic.getDiversedRater(request.getParameter("id"),db));%>
+		</table>
+		<br>
 		<br> <a
 			href=<%="\"addLocation.jsp?id=" + request.getParameter("id") + "\""%>>Add
 			a new location</a>&nbsp;&nbsp; <a
