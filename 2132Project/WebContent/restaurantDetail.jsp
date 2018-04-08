@@ -50,7 +50,20 @@
 				out.println(location.getLocationList(request.getParameter("id"), db));
 			%>
 		</table>
-		
+		<h3>The most expensive item in this restaurant</h3>
+		<table border=2>
+			<tr>
+				<td>Item Name</td>
+				<td>Price</td>
+				<td>Manager Name</td>
+				<td>Opening Hour</td>
+				<td>URL</td>
+			</tr>
+			<%
+				out.println(restaurant.getMostExpItem(request.getParameter("id"), db));
+			%>
+		</table>
+		<br>
 		<h3>Ratings:</h3>
 		<table border=2>
 			<tr>
@@ -68,7 +81,7 @@
 				out.println(restaurant.getRating(request.getParameter("id"), db));
 			%>
 		</table>
-		
+
 		<h3>Number of ratings for each user:</h3>
 		<table border=2>
 			<tr>
@@ -80,7 +93,8 @@
 
 		</table>
 		<h3>Statistic Data</h3>
-		<br>The most frequent rater of this restaurant:<br>
+		<br>The most frequent rater of this restaurant:
+		<br>
 		<table border=2>
 			<tr>
 				<td>Rater Name</td>
@@ -93,7 +107,8 @@
 			<%out.println(statistic.getItemByRater(request.getParameter("id"),db));%>
 		</table>
 		<br>
-		<br>The raters that provide the most diverse ratings of this restaurant<br>
+		<br>The raters that provide the most diverse ratings of this restaurant
+		<br>
 		<table border=2>
 			<tr>
 				<td>Rater Name</td>
@@ -108,12 +123,13 @@
 			<%out.println(statistic.getDiversedRater(request.getParameter("id"),db));%>
 		</table>
 		<br>
-		<br> <a
-			href=<%="\"addLocation.jsp?id=" + request.getParameter("id") + "\""%>>Add
-			a new location</a>&nbsp;&nbsp; <a
-			href=<%="\"menu.jsp?id=" + request.getParameter("id") + "\""%>>Show
-			menu</a>&nbsp;&nbsp; <a href=<%="\"addrate.jsp?id=" + request.getParameter("id") + "\""%>> Add a rating</a>
-			<br><a href="restaurant.jsp">Back to Restaurant List</a>
+		<br>
+		<a href=<%="\" addLocation.jsp?id=" + request.getParameter(" id ") +"\""%>>Add a new location</a>&nbsp;&nbsp;
+		<a href=<%="\" menu.jsp?id=" + request.getParameter(" id ") + "\""%>>Show menu
+		</a>&nbsp;&nbsp;
+		<a href=<%="\" addrate.jsp?id=" + request.getParameter(" id ") + "\""%>> Add a rating</a>
+		<br>
+		<a href="restaurant.jsp">Back to Restaurant List</a>
 
 	</center>
 </body>
