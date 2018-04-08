@@ -91,6 +91,33 @@ public class Restaurant extends HttpServlet {
 		return rList;
 	}
 
+	public String getMostExpItem(String id, Connect conn) {
+		connection = conn.getConnection();
+		String name, price, managername, houropen, url;
+		try {
+			Statement st = connection.createStatement();
+			rs = st.executeQuery(
+					"select distinct name,price,managername,houropen,url from (select distinct restaurant.restaurantid,managername,houropen,url from restaurant left join location on restaurant.restaurantid=location.restaurantid)as tmp1 left join menuitem on tmp1.restaurantid=menuitem.restaurantid where (menuitem.restaurantid="
+							+ id + ") and (price=(select max(price) from menuitem where restaurantid=" + id + "))");
+		} catch (Exception e) {
+			System.out.println("Cant read table");
+		}
+		try {
+			while (rs.next()) {
+				name = rs.getString("name");
+				price = rs.getString("price");
+				managername = rs.getString("managername");
+				houropen = rs.getString("houropen");
+				url = rs.getString("url");
+				rList += "<tr><td>" + name + "</td><td>" + price + "</td><td>" + managername + "</td><td>" + houropen
+						+ "</td><td>" + url + "</td></tr>";
+			}
+		} catch (Exception e) {
+			System.out.println("Error creating table " + e);
+		}
+		return rList;
+	}
+
 	public String getName(String id, Connect conn) {
 		String name = "";
 		Statement st;
