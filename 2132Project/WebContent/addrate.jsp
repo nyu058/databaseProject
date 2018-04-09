@@ -24,69 +24,71 @@
 </head>
 <body>
 	<center>
-		<h3>
+	
+		<h2>
 			Enter a Rating for&nbsp;<%=restaurant.getName(request.getParameter("id"), db)%>
-		</h3>
-		<form action="AddRate" method="get">
-            <table>
-                <tr>
-                    <td>Food</td>
-                    <td>
-                        <select name="food">
-                        <option value="1">1 star</option>
-                        <option value="2">2 stars</option>
-                        <option value="3" selected>3 stars</option>
-                        <option value="4">4 stars</option>
-                        <option value="5">5 stars</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Mood</td>
-                    <td>
-                        <select name="mood">
-                        <option value="1">1 star</option>
-                        <option value="2">2 stars</option>
-                        <option value="3" selected>3 stars</option>
-                        <option value="4">4 stars</option>
-                        <option value="5">5 stars</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Staff</td>
-                    <td>
-                        <select name="staff">
-                        <option value="1">1 star</option>
-                        <option value="2">2 stars</option>
-                        <option value="3" selected>3 stars</option>
-                        <option value="4">4 stars</option>
-                        <option value="5">5 stars</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Price</td>
-                    <td>
-                        <select name="price">
-                        <option value="1">1 star</option>
-                        <option value="2">2 stars</option>
-                        <option value="3" selected>3 stars</option>
-                        <option value="4">4 stars</option>
-                        <option value="5">5 stars</option>
-                        </select>
-                    </td>
-                </tr>
-                </table>
-                <br>Your comment:<br><textarea name="comment" style="width:300px;height:100px;"></textarea>
-                <input type="hidden" name="rid" value="<%=request.getParameter("id")%>">
-                <br><br>Will you come again?
-                <input type="radio" name="comeagain" value="true" >Yes
-                <input type="radio" name="comeagain" value="false">No
-                <br><br><input type="submit" value="Submit">
-        </form>
-		&nbsp;&nbsp; <a href="javascript:history.back()">Back to
-			Restaurant</a>
+		</h2>
 	</center>
+	<div class="loginpanel">
+
+		<form action="AddRate" method="get">
+			<center>
+				
+						Food:
+						<select name="food">
+								<option value="1">1 star</option>
+								<option value="2">2 stars</option>
+								<option value="3" selected>3 stars</option>
+								<option value="4">4 stars</option>
+								<option value="5">5 stars</option>
+						</select>
+					
+					
+						Mood:
+						<select name="mood">
+								<option value="1">1 star</option>
+								<option value="2">2 stars</option>
+								<option value="3" selected>3 stars</option>
+								<option value="4">4 stars</option>
+								<option value="5">5 stars</option>
+						</select>
+					Staff:
+						<select name="staff">
+								<option value="1">1 star</option>
+								<option value="2">2 stars</option>
+								<option value="3" selected>3 stars</option>
+								<option value="4">4 stars</option>
+								<option value="5">5 stars</option>
+						</select>
+					
+						Price:
+						<select name="price">
+								<option value="1">1 star</option>
+								<option value="2">2 stars</option>
+								<option value="3" selected>3 stars</option>
+								<option value="4">4 stars</option>
+								<option value="5">5 stars</option>
+						</select>
+					<br><br>
+				Your comment:<br>
+				<textarea name="comment" style="width: 300px; height: 100px;"></textarea>
+			
+			<input type="hidden" name="rid"
+				value="<%=request.getParameter("id")%>"> <br> Will you
+			come again?
+			
+				<br>Yes<input type="radio" name="comeagain" value="true">
+				
+					No<input type="radio" name="comeagain" value="false">
+					</center>
+					<div class="buttons">
+						<input type="submit" value="Submit"> <span> <a
+							href="javascript:history.back()">Back to Restaurant</a>
+						</span>
+					</div>
+		</form>
+
+	</div>
+
 </body>
 </html>

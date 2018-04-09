@@ -14,13 +14,14 @@
 	db.openConnection();
 	Restaurant restaurant = new Restaurant();
 	Location location = new Location();
-	Statistic statistic=new Statistic();
+	Statistic statistic = new Statistic();
 %>
 <title>Detail</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<center>
+		<br>
 		<h2>Restaurant details:</h2>
 		<h3>
 			Name:
@@ -93,8 +94,7 @@
 
 		</table>
 		<h3>Statistic Data</h3>
-		<br>The most frequent rater of this restaurant:
-		<br>
+		<br>The most frequent rater of this restaurant: <br>
 		<table border=2>
 			<tr>
 				<td>Rater Name</td>
@@ -104,32 +104,35 @@
 				<td>Comment</td>
 				<td>Price</td>
 			</tr>
-			<%out.println(statistic.getItemByRater(request.getParameter("id"),db));%>
+			<%
+				out.println(statistic.getItemByRater(request.getParameter("id"), db));
+			%>
 		</table>
-		<br>
-		<br>The raters that provide the most diverse ratings of this restaurant
-		<br>
+		<br> <br>The raters that provide the most diverse ratings of
+		this restaurant <br>
 		<table border=2>
 			<tr>
 				<td>Rater Name</td>
 				<td>Rater Type</td>
 				<td>Rater Email</td>
-				
+
 				<td>Price</td>
 				<td>Food</td>
 				<td>Mood</td>
 				<td>Staff</td>
 			</tr>
-			<%out.println(statistic.getDiversedRater(request.getParameter("id"),db));%>
+			<%
+				out.println(statistic.getDiversedRater(request.getParameter("id"), db));
+			%>
 		</table>
-		<br>
-		<br>
-		<a href=<%="\" addLocation.jsp?id=" + request.getParameter(" id ") +"\""%>>Add a new location</a>&nbsp;&nbsp;
-		<a href=<%="\" menu.jsp?id=" + request.getParameter(" id ") + "\""%>>Show menu
-		</a>&nbsp;&nbsp;
-		<a href=<%="\" addrate.jsp?id=" + request.getParameter(" id ") + "\""%>> Add a rating</a>
-		<br>
-		<a href="restaurant.jsp">Back to Restaurant List</a>
+		<br> <br> <a
+			href=<%="\" addLocation.jsp?id=" + request.getParameter("id") + "\""%>>Add
+			a new location</a>&nbsp;&nbsp; <a
+			href=<%="\" menu.jsp?id=" + request.getParameter("id") + "\""%>>Show
+			menu </a>&nbsp;&nbsp; <a
+			href=<%="\" addrate.jsp?id=" + request.getParameter("id") + "\""%>>
+			Add a rating</a> <br>
+		<br> <a href="restaurant.jsp">Back to Restaurant List</a>
 
 	</center>
 </body>

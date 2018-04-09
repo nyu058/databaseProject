@@ -8,13 +8,21 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<br>
+	<br>
 	<center>
-		<h3>Please enter the following information:</h3>
+		<h2>Please enter the following information:</h2>
 	</center>
-	<center>
+	
+	<div class="loginpanel">
 		<form action="Register" method="post">
-			Email : <input type="email" name="email" required><br> <br>
-			Password : <input id="password" type="password" name="pswd" required><br>
+		
+		Email:
+			 <input type="email" name="email"  required>
+			 Password:
+			<input type="password" name="pswd"  required>
+			
+			
 			<br> Confirm Password: <input type="password" id
 				id="password_confirm" oninput="check(this)" required>
 			<script language='javascript' type='text/javascript'>
@@ -27,16 +35,21 @@
 					}
 				}
 			</script>
-			<br> <br> Username : <input type="text" name="username"
-				required><br> <br> Type: <select name="type">
+			<br> Username : <input type="text" name="username"
+				required><br> <br>
+				<center>
+				 Type: <select name="type">
 				<option value="blog">Blog</option>
 				<option value="online">Online</option>
 				<option value="food critic">Food Critic</option>
-
-			</select> <br> <br> <input type="submit" value="Register">
-			&nbsp;&nbsp;<a href="home.jsp">Return to Home</a>
+	
+			</select> <br> 
+			</center>
+			<div class="buttons">
+			<input type="submit" value="Register"><span>
+			<a href="home.jsp">Return to Home</a></span>
 		</form>
-	</center>
-
+		</div>
+	
 </body>
 </html>

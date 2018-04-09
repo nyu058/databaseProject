@@ -28,28 +28,35 @@
 		<h3>
 			Enter a Rating for:&nbsp;<%=rm.getName(request.getParameter("id"), db)%>
 		</h3>
-		<form action="AddItemRate" method="get">
-            <table>
-                              <tr>
-                    <td>Mood</td>
-                    <td>
-                        <select name="rating">
-                        <option value="1">1 star</option>
-                        <option value="2">2 stars</option>
-                        <option value="3" selected>3 stars</option>
-                        <option value="4">4 stars</option>
-                        <option value="5">5 stars</option>
-                        </select>
-                    </td>
-                </tr>                
-                </table>
-                <br>Your comment:<br><textarea name="comment" style="width:300px;height:100px;"></textarea>
-                <input type="hidden" name="iid" value="<%=request.getParameter("id")%>">
-                <br>
-                <br><br><input type="submit" value="Submit">
-        </form>
-		&nbsp;&nbsp; <a href="javascript:history.back()">Back to
-			Menu</a>
 	</center>
+	<div class="loginpanel">
+	<center>
+		<form action="AddItemRate" method="get">
+			<table>
+				<tr>
+					<td>Mood:</td>
+					<td><select name="rating">
+							<option value="1">1 star</option>
+							<option value="2">2 stars</option>
+							<option value="3" selected>3 stars</option>
+							<option value="4">4 stars</option>
+							<option value="5">5 stars</option>
+					</select></td>
+				</tr>
+			</table>
+			<br>Your comment:<br><br>
+			<textarea name="comment" style="width: 400px; height: 100px;"></textarea>
+			<input type="hidden" name="iid"
+				value="<%=request.getParameter("id")%>"> <br> <br>
+				
+			<div class="buttons">
+				<input type="submit" value="Submit"> <span> <br><a
+					href="javascript:history.back()">Back to Menu</a>
+				</span>
+			</div>
+		</form>
+		</center>
+	</div>
+
 </body>
 </html>

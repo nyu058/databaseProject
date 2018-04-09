@@ -905,12 +905,12 @@ div.loginpanel {
   padding: 20px;
   margin: 0 auto;
   position: relative;
-  top: 20%;
-  -webkit-transform: translateY(-20%);
-  -moz-transform: translateY(-20%);
-  -ms-transform: translateY(-20%);
-  -o-transform: translateY(-20%);
-  transform: translateY(-20%);
+  top: 15%;
+  -webkit-transform: translateY(-15%);
+  -moz-transform: translateY(-15%);
+  -ms-transform: translateY(-15%);
+  -o-transform: translateY(-15%);
+  transform: translateY(-15%);
   background-color: rgba(221, 221, 221, 0.6);
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -1196,6 +1196,11 @@ div.loginpanel div.hr div:last-child {
   bottom: 10px;
   left: 10px;
   color: #F00;
+}
+.choice {
+    float: right;
+    display: inline;
+    margin-left: 3em;
 }
 @media only screen and (max-width: 555px) {
   div.loginpanel {

@@ -24,9 +24,10 @@
 <body>
 	<center>
 		<h3>
-			Enter the location for&nbsp;<%=restaurant.getName(request.getParameter("id"), db)%>:
+			Enter a location for&nbsp;<%=restaurant.getName(request.getParameter("id"), db)%>:
 		</h3>
-
+		</center>
+<div class="loginpanel">
 		<form action="Location" method="get">
 			First open date:<input type="date" name="odate" requited><br>
 			<br> Manager Name:<input type="text" name="mname" required><br>
@@ -37,11 +38,12 @@
 				required><br> <br> Hour Close:<input type="time"
 				name="ctime" step="1800" required><br> <br> <input
 				type="hidden" name="rid" value="<%=request.getParameter("id")%>">
-			<input type="submit" value="Submit">
-
+				<div class="buttons">
+			<input type="submit" value="Submit"><span><a href="javascript:history.back()">Back to
+			Restaurant</a></span>
+</div>
 		</form>
-		&nbsp;&nbsp; <a href="javascript:history.back()">Back to
-			Restaurant</a>
-	</center>
+		</div>
+	
 </body>
 </html>

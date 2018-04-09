@@ -16,13 +16,14 @@
 %>
 </head>
 <body onunload="">
+<br>
 	<center>
-		<h3>Creating a restaurant</h3>
-		<a href="home.jsp">Home</a><br> <br>
+		<h2>Creating a restaurant</h2>
 	</center>
-	<center>
+		<div class="loginpanel">
+	
 		<form action="Restaurant" method="post">
-			Restaurant Name: <input type="text" name="rname" required><br>
+			Restaurant Name: <input type="text" name="rname" required>
 			<br> Type: <select name="type">
 				<option value="Fast Food">Fast Food</option>
 				<option value="Chinese">Chinese</option>
@@ -36,12 +37,12 @@
 				<option value="Steak House">Steak House</option>
 				<option value="Spanish">Spanish</option>
 				<option value="All you can eat">All you can eat</option>
-			</select><br> <br> <input type="submit" value="Submit">
-			&nbsp;&nbsp;<a href="restaurant.jsp">Back to Restaurant List</a>
-
+			</select><br> <div class="buttons"> <input type="submit" value="Submit">
+			<span><a href="restaurant.jsp">Back to Restaurant List</a>
+</span>
+</div>
 		</form>
-
-	</center>
+</div>
 
 </body>
 </html>

@@ -26,24 +26,28 @@
 		<h3>
 			Adding an menu item for&nbsp;<%=restaurant.getName(request.getParameter("id"), db)%>:
 		</h3>
+		</center>
+		<div class="loginpanel">
 		<form action="Menu" method="get" id="add">
-			Name:<input type="text" name="name" requited><br> <br>
-			Price:<input type="text" name="price" required><br> <br>
-			Type:<select name="type">
+			Name:<input type="text" name="name" requited>
+			Price:<input type="text" name="price" required><br> 
+			<center>
+			Type:&nbsp;&nbsp;<select name="type">
 				<option value="food">Food</option>
 				<option value="beverage">Beverage</option>
-			</select><br> <br> <br> Category:<select name="category">
+			</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Category:&nbsp;&nbsp;<select name="category">
 				<option value="starter">Starter</option>
 				<option value="main">Main</option>
 				<option value="desert">Desert</option>
-			</select><br> <input type="hidden" name="rid"
-				value="<%=request.getParameter("id")%>"> <br>
-			Description:<br>
-			<textarea rows="4" cols="50" name="descript" form="add"></textarea>
-			<br> <br> <input type="submit" value="Submit">
-
+			</select> <input type="hidden" name="rid"
+				value="<%=request.getParameter("id")%>"></center> <br>
+			Description:<br><center>
+			<textarea style="width: 450px; height: 80px;" name="descript" ></textarea></center>
+			<br>  
+			<div class="buttons"><input type="submit" value="Submit"><span> <a href="javascript:history.back()">Back to menu</a></span>
+</div>
 		</form>
-		&nbsp;&nbsp; <a href="javascript:history.back()">Back to menu</a>
-	</center>
+		
+	</div>
 </body>
 </html>
