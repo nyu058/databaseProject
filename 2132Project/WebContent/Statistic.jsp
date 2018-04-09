@@ -54,7 +54,7 @@
     </table>
     <br>
     <br><h3>Select a Restaurant and a Rater to see more statistic</h3>
-    <form action="statisticalt.jsp" method="get">
+    <form action="Statistic.jsp" method="get">
         Restaurant
         <select name="restaurantid">
             <%out.println(statistic.getRestList(db));%>
@@ -66,6 +66,19 @@
         &nbsp&nbsp&nbsp&nbsp
         <input type="submit" value="Submit">
     </form>
+    <h3>Rater ratings</h3>
+    <table border=2>
+        <tr>
+            <td>Date</td>
+            <td>Price</td>
+            <td>Food</td>
+            <td>Mood</td>
+            <td>Staff</td>
+            <td>Comment</td>
+            <td>Come Again</td>
+        </tr>
+        <%out.println(statistic.getRate(request.getParameter("restaurantid"),request.getParameter("userid"),db));%>
+    </table>
     <br>
     <br>
     <a href="home.jsp">Home</a><br><br>

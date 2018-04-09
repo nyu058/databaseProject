@@ -208,4 +208,34 @@ public class Statistic extends HttpServlet {
 
         return rList;
     }
+
+    public String getRate(String restid,String userid,Connect conn) {
+        if(restid=="")return "";
+        String rList = "";
+        connection = conn.getConnection();
+        String date,price,food,mood,staff,comment,comeagain;
+        try {
+            Statement st = connection.createStatement();
+            rs = st.executeQuery(
+                "SELECT * FROM rating WHERE (restaurantid="+restid+" and userid="+userid+")");
+            } catch (Exception e) {
+            System.out.println("Can't read table rating");
+        }
+        try {
+            while (rs.next()) {
+                date = rs.getString("date");
+                price = rs.getString("price");
+                food = rs.getString("food");
+                mood = rs.getString("mood");
+                staff = rs.getString("staff");
+                comment = rs.getString("comment");
+                comeagain = rs.getString("comeagain");
+                rList += "<tr><td>" + date + "</td><td>" + price + "</td><td>" + food + "</td><td>"
+                        + mood + "</td><td>"+ staff + "</td><td>" + comment + "</td><td>"  + comeagain + "</td></tr>";
+            }
+        } catch (Exception e) {
+            System.out.println("Error creating table" + e);
+        }
+        return rList;
+    }
 }
