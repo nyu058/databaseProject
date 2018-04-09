@@ -43,7 +43,7 @@
 				<td>Restaurant Name</td>
 				<td>Rater Name</td>
 			<tr>
-		<%out.println(tp.getHighestRate("Japanses",db));%>
+		<%out.println(tp.getHighestRate("Japanese",db));%>
 		</table>
 	<h3>Thai</h3>
 		<%out.println(tp.getAvgPrice("Thai",db));%><br>
