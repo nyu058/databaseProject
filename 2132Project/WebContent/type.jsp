@@ -36,8 +36,8 @@
 			<tr>
 		<%out.println(tp.getHighestRate("Chinese",db));%>
 		</table>
-	<h3>Japanses</h3>
-		<%out.println(tp.getAvgPrice("Japanses",db));%><br>
+	<h3>Japanese</h3>
+		<%out.println(tp.getAvgPrice("Japanese",db));%><br>
 		<table border=2>
 			<tr>
 				<td>Restaurant Name</td>
