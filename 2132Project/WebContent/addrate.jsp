@@ -74,12 +74,17 @@
 				<textarea name="comment" style="width: 300px; height: 100px;"></textarea>
 			
 			<input type="hidden" name="rid"
-				value="<%=request.getParameter("id")%>"> <br> Will you
+				value="<%=request.getParameter("id")%>"> <br><br> Will you
 			come again?
 			
-				<br>Yes<input type="radio" name="comeagain" value="true">
-				
-					No<input type="radio" name="comeagain" value="false">
+					<table>
+					<tr>
+					<td>Yes<input type="radio" name="comeagain" value="true"></td>
+					<td>No<input type="radio" name="comeagain" value="false"></td>	
+					</tr>			
+					</table>
+					
+					
 					</center>
 					<div class="buttons">
 						<input type="submit" value="Submit"> <span> <a
